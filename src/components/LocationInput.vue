@@ -1,15 +1,15 @@
 <template>
-	<div>
-		<div>
-			<label>Point A</label>
+	<div class="main-container">
+		<div class="card">
+			<label>Point A </label>
 			<input type="text" v-model="pointA" />
 		</div>
-		<div>
-			<label>Point B</label>
+		<div class="card">
+			<label>Point B </label>
 			<input type="text" v-model="pointB" />
 		</div>
-		<div>
-			<label>Type</label>
+		<div class="card">
+			<label>Type </label>
 			<input type="text" v-model="type" />
 		</div>
 		<button>SEARCH</button>
@@ -29,7 +29,25 @@ export default {
 			pointA: '',
 			pointB: '',
 			type: '',
+			pointALat: '',
+			pointBLat: '',
 		}
 	},
 }
 </script>
+
+<style scoped>
+.main-container {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.card {
+	background-color: aliceblue;
+	width: 40%;
+	margin: 5px;
+	padding: 5px;
+}
+</style>
