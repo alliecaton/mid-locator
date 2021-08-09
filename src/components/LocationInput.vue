@@ -12,7 +12,7 @@
 			<label>Type </label>
 			<input type="text" v-model="type" />
 		</div>
-		<button>SEARCH</button>
+		<button @click="searchPlaces">SEARCH</button>
 
 		<div>{{ pointA }}</div>
 		<div>{{ pointB }}</div>
@@ -32,6 +32,18 @@ export default {
 			pointALat: '',
 			pointBLat: '',
 		}
+	},
+
+	methods: {
+		searchPlaces() {
+			fetch(
+				'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Museum%20of%20Contemporary%20Art%20Australia&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=AIzaSyDAUNbtyz2Ofwvctv_64BiiYIZX0oCSnak'
+			)
+				.then(r => r.json())
+				.then(json => {
+					console.log(json)
+				})
+		},
 	},
 }
 </script>
